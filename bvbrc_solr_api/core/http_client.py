@@ -5,7 +5,7 @@ from typing import Any, Dict, Iterable
 import httpx
 
 
-DEFAULT_BASE_URL = "https://www.bv-brc.org/api"
+DEFAULT_BASE_URL = "https://www.bv-brc.org/api-bulk"
 DEFAULT_HEADERS = {
   "Accept": "application/json",
   "Content-Type": "application/rqlquery+x-www-form-urlencoded",
@@ -49,7 +49,6 @@ def _build_body(filter: str, options: Dict[str, Any]) -> str:
     params.append(qb_http_download(True))
 
   return "&".join([p for p in params if p])
-
 
 def run(core_name: str, filter: str, options: Dict[str, Any] | None, base_url: str | None, headers: Dict[str, str] | None):
   options = options or {}
